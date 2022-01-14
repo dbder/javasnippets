@@ -13,11 +13,12 @@ class TestStackWalker {
 
 
     @Test
+        // get the stack with stackwalker
     void stackwalkerGetsPath() {
         // GIVEN: a stackwalker
         var walker = StackWalker.getInstance(RETAIN_CLASS_REFERENCE);
 
-        // WHEN: i add the stack to a list
+        // WHEN: the stack is added to a list
         var list = new ArrayList<String>();
         walker.forEach(f -> list.add(f.toString()));
 
@@ -29,6 +30,7 @@ class TestStackWalker {
 
 
     static Set<String> stack = new HashSet<>();
+
     static {
         stack.add("snippets.TestStackWalker.stackwalkerGetsPath(TestStackWalker.java:22)");
         stack.add("org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)");
